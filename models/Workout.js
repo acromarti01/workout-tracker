@@ -2,17 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
-  name: {
-    // type: String,
-    // trim: true,
-    // required: "Enter a name for transaction"
-  },
-  value: {
-    
-  },
-  date: {
-    
-  }
+    _id: {
+        type: Number,   
+    },
+    day: {
+        type: Date,
+    },
+    exercise: {
+        type: Array,
+    },
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);
