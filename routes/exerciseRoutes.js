@@ -1,2 +1,7 @@
 const router = require("express").Router();
-const {}
+const { Exercise } = require("../models");
+const path = require("path");
+
+
+
+module.exports = router;
