@@ -21,10 +21,7 @@ const exerciseSchema = new Schema({
     },
     duration: {
         type: Number,
-    },
-    distance: {
-        type: Number,
-    },
+    },    
     weight: {
         type: Number,
     },
