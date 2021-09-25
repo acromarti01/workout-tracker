@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// {
+// { 
 //     type: 'resistance',
 //     name: 'Lateral Pull',
 //     duration: 20,
@@ -17,11 +17,14 @@ const exerciseSchema = new Schema({
     },
     name: {
         type: String,
-        trim: true,
-    },
+        trim: true,        
+    },    
     duration: {
         type: Number,
-    },    
+    }, 
+    distance: {
+        type: Number,
+    },   
     weight: {
         type: Number,
     },
