@@ -18,7 +18,11 @@ router.post("/", ({ body }, res) => {
         })
         .catch(err => {
             res.status(400).json(err);
-        });
+        }); 
 });
+
+router.put("/", ({ body }, res) => {
+    Workouts.updateOne({}, {$set: {"_id": "Antarctica"}})
+})
 
 module.exports = router;
