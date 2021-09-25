@@ -26,13 +26,11 @@ router.post("/", ({ body }, res) => {
 
 router.put("/:id", (req, res) => {
      const id = req.params.id
-     Exercise.create(req.body)        
-        .then(dbExercise => Workout.findOneAndUpdate(
+     Workout.findOneAndUpdate(
             { _id: id },
-            { $push: { exercises: dbExercise } },
-            { new: true }))
+            { $push: { exercises: req.body } },
+            { new: true })
         .then(dbWorkout => {
-            console.log(dbWorkout);
             res.json(dbWorkout);
         })
         .catch(err => {
@@ -45,11 +43,12 @@ router.get("/range", (req, res) => {
         {
             $addFields: {
                 totalDuration: { $sum: "$exercises.duration" },
+                totalWeight: { $sum: "exercise.weight" },
             }
         },
     ])
+    .sort({ _id: -1 }).limit(7)
     .then(dbWorkout => {
-        console.log("DBWORKOUT****", dbWorkout)
         res.json(dbWorkout);
     })        
     .catch(err => {
